@@ -1,4 +1,20 @@
-# Laravel PHP Framework (projeto de ajuda - Unix)
+# Laravel PHP Framework - Blog (referência de estudos)
+
+
+## O que é este projeto?
+O projeto tem como objetivo disponibilizar os códigos para o curso laravel-express e ser um guia de referência/testes sobre Laravel para o autor.
+
+
+## Para rodar este projeto
+```bash
+$ git clone https://github.com/fabiosperotto/laravel-blog
+$ cd laravel-blog
+$ composer install
+$ php artisan serve
+```
+Acesssar pela url: http://localhost:8000/blog
+
+
 
 ## Pré-requisitos
 - PHP >= 5.5.9
@@ -6,6 +22,11 @@
 - PDO PHP Extension
 - Mbstring PHP Extension
 - Tokenizer PHP Extension
+
+
+## Anotações/Extras
+As seções a seguir são anotações sobre o framework e podem não refletir a aplicação (blog) em desenvolvimento.
+
 
 Composer:
 ```bash
@@ -16,7 +37,7 @@ $ sudo chmod -R 777 ~/.composer/cache/
 $ sudo composer self-update
 ```
 
-## Instalação Framework
+### Instalação Framework
 ```bash
 $ composer global require "laravel/installer"
 ```
@@ -31,7 +52,7 @@ $ source ~/.bashrc
 ```
 
 
-## Criação de um projeto clean
+### Criação de um projeto clean
 ```bash
 $ laravel new nome_projeto
 $ cd nome_projeto
@@ -43,13 +64,33 @@ O último comando serve para testar a instalação, se em localhost:8000 aparece
 $ composer create-project --prefer-dist laravel/laravel nome-do-projeto 5.1.*
 ```
 
-
-
+### Artisan
+- Sistema de comandos do Laravel. Help em:
 ```bash
-$ laravel new nome_projeto
-$ cd nome_projeto
-$ php artisan serve
-$ sudo chmod -R 777 storage/
-$ sudo chmod -R 777 bootstrap/cache/
+$ php artisan
 ```
+- Remover arquivos de cache criado pelo Laravel:
+```bash
+$ php artisan clear-compiled 
+```
+- Colocar sistema em modo manutenção:
+```bash
+$ php artisan down 
+```
+
+### Tinker
+- Ferramenta de interação com o projeto, objetos podem ser criados e salvos em banco de dados, ótimo para testes sem ter que criar telas:
+```bash
+$ php artisan tinker
+```
+
+### Estruturas importantes
+- app/Http/routes.php: arquivo que define as rotas da aplicação.
+- app/Http/Controllers: ficam os controllers da aplicação, o comando para gerar uma estrutura de um controlador é:
+```bash
+$ php artisan make:controller TestController
+```
+- resources: ficam as views da aplicação. Deixe imagens, CSS, JS e fontes na /public.
+ 
+ 
 
