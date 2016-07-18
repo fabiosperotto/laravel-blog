@@ -10,6 +10,8 @@ O projeto tem como objetivo disponibilizar os códigos para o curso laravel-expr
 $ git clone https://github.com/fabiosperotto/laravel-blog
 $ cd laravel-blog
 $ composer install
+$ cp .env.example .env
+$ php artisan key:generate
 $ php artisan serve
 ```
 Acesssar pela url: http://localhost:8000/blog
