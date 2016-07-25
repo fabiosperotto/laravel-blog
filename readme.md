@@ -118,7 +118,7 @@ $ php artisan make:migration create_table_post --create=posts
 $ php artisan migrate
 ```
 
-- MassAssigment: é comum que para criar um registro no banco de dados, setamos todas as informações em um objeto e depois realizamos o insert do mesmo. Por exemplo, para um post de blog, podemos fazer $post->title = "Titulo"; $post->content = "conteúdo do post aqui". O Laravel por padrão de segurança, evita que isso seja possível, deixando habilitado somente a função save(). Assim uma requisição direta de criação de registro não poderá ser feita. Para habilitar o uso do create() entre outras esquemas de inserção, precisamos codificar no Model quais campos da tabela serão permitidos para MassAssigment. Para isso basta criar um array protegido chamado $fillable e especificar os nomes dos campos (ver model Post.php para exemplo).
+- MassAssigment: é comum que para criar um registro no banco de dados, setamos todas as informações em um objeto e depois realizamos o insert do mesmo. Por exemplo, para um post de blog, podemos fazer $post->title = "Titulo"; $post->content = "conteúdo do post aqui". O Laravel por padrão de segurança, evita que isso seja possível, deixando habilitado somente a função save(). Assim uma requisição direta de criação de registro, setando os campos, não poderá ser feita. Para habilitar o uso do create() entre outras esquemas de inserção, precisamos codificar no Model quais campos da tabela serão permitidos para MassAssigment. Para isso basta criar um array protegido chamado $fillable e especificar os nomes dos campos (ver model Post.php para exemplo). Fora do $fillable o framework tenta controlar a inserção de dados. Dentro de $fillable ganhamos a liberdade sobre o campo, mas perdemos um esquema de segurança.
 
 
 
