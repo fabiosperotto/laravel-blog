@@ -177,3 +177,18 @@ $ php artisan db:seed
 ```
 
 
+##Validação de Formulários
+Para validar formulários, interceptar a request e validar os campos:
+
+No back-end:
+
+- php artisan make:request PostRequest
+- PostRequest será criado em app/Htpp/Requests
+- Preencher o método rules com regras de validação
+- Enquanto o método authorize estiver retornando false, não conseguirá efetuar o request
+
+No front-end:
+
+- no formulário, verificar se existe $errors->any(), iterar no array que exibirá mensagens do framework sobre os erros encontrados na validação definida nas rules do back-end (ver resources/views/admin/posts/create.blade.php)
+
+

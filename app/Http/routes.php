@@ -22,4 +22,7 @@
 //Route::get('blog', 'BlogController@index');
 Route::resource('/', 'BlogController');
 //Route::controller('blog', 'BlogController');
-Route::get('admin', 'PostsAdminController@index');
+Route::get('admin/posts', ['as' => 'admin.posts.index', 'uses' => 'PostsAdminController@index']); //rotas nomeadas
+Route::get('admin/posts/create', ['as' => 'admin.posts.create', 'uses' => 'PostsAdminController@create']);
+//Route::get('admin/create', 'PostsAdminController@create');
+Route::post('admin/posts/store', ['as' => 'admin.posts.store', 'uses' => 'PostsAdminController@store']);
