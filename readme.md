@@ -28,6 +28,21 @@ Acesssar pela url: http://localhost:8000/blog
 - Tokenizer PHP Extension
 
 
+##Dependências
+###illuminate/html
+
+Para Laravel 5.1:
+
+- composer require illuminate/html
+- Registrar o service provider em config/app.php (\Illuminate\Html\HtmlServiceProvider::class)
+- Ainda em config/app.php adicionar os 2 aliases necessários (ver arquivo neste projeto)
+
+Para Versões mais novas:
+
+- O pacote illuminate/html foi abandonado, usar [laravelcollective/html](https://packagist.org/packages/laravelcollective/html)
+
+
+
 ## Anotações/Extras
 As seções a seguir são anotações sobre o framework e podem não refletir a aplicação (blog) em desenvolvimento.
 
