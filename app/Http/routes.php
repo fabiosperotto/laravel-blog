@@ -21,4 +21,6 @@ Route::get('/', function () {
 
 Route::get('ola/{nome}', 'TestController@index');
 Route::get('notas', 'TestController@notas');
-Route::get('blog', 'BlogController@index');
+//Route::get('blog', 'BlogController@index');
+Route::resource('blog', 'BlogController');
+//Route::controller('blog', 'BlogController');

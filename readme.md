@@ -93,6 +93,20 @@ $ php artisan tinker
 ![Tinker exemplo](public/image/tinker.png)
 
 
+- Para adicionar uma tag 3 ao post 1 pelo tinker basta:
+```bash
+$post = App\Post::find(1);
+$post->tags()->attach(3);
+$post->tags;
+```
+
+- Para "sincronizar" os idsa de tags com um post, pode ser usada a função sync(array()) que realiza o attach e detach das chaves estrangeiras, removendo ids que não conferiram com a lista informada no argumento de sua função:
+```bash
+$post->tags()->sync([1, 3, 5, 7]);
+```
+
+
+
 ### Estruturas importantes
 - app/Http/routes.php: arquivo que define as rotas da aplicação.
 - app/Http/Controllers: ficam os controllers da aplicação, o comando para gerar uma estrutura de um controlador é:
@@ -103,6 +117,11 @@ $ php artisan make:controller TestController
 - As Models serão criadas na raiz de /app, para gerar uma model:
 ```bash
 $ php artisan make:model Post
+```
+
+- Para gerar uma model + sua migration do banco de dados use o parâmetro -m:
+```bash
+$ php artisan make:model Post -m
 ```
  
 

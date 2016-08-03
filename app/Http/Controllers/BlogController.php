@@ -17,45 +17,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $posts = \App\Post::all();
-        // $posts = array(
-        //     0 => array(
-        //         "titulo" => "Titulo do post 4",
-        //         "data" => date('d/m/Y, H:i:s', strtotime("-1 days")),
-        //         "resumo" => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at urna suscipit, vehicula turpis in, 
-        //                      pulvinar elit. Nullam gravida ut magna a vestibulum. Nullam quis nulla enim. Fusce a vulputate ex, 
-        //                      eget commodo tellus. Pellentesque nisl neque, sollicitudin non libero sit amet, accumsan tincidunt 
-        //                      diam. Maecenas tempus nisl neque, eu ornare urna laoreet eget. Aliquam ex turpis, aliquet porttitor 
-        //                      neque ut, fringilla eleifend lectus...',
-        //     ),
-        //     1 => array(
-        //         "titulo" => "Titulo do post 3",
-        //         "data" => date('d/m/Y, H:i:s', strtotime("-2 days")),
-        //         "resumo" => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at urna suscipit, vehicula turpis in, 
-        //                      pulvinar elit. Nullam gravida ut magna a vestibulum. Nullam quis nulla enim. Fusce a vulputate ex, 
-        //                      eget commodo tellus. Pellentesque nisl neque, sollicitudin non libero sit amet, accumsan tincidunt 
-        //                      diam. Maecenas tempus nisl neque, eu ornare urna laoreet eget. Aliquam ex turpis, aliquet porttitor 
-        //                      neque ut, fringilla eleifend lectus...',
-        //     ),
-        //     2 => array(
-        //         "titulo" => "Titulo do post 2",
-        //         "data" => date('d/m/Y, H:i:s', strtotime("-3 days")),
-        //         "resumo" => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at urna suscipit, vehicula turpis in, 
-        //                      pulvinar elit. Nullam gravida ut magna a vestibulum. Nullam quis nulla enim. Fusce a vulputate ex, 
-        //                      eget commodo tellus. Pellentesque nisl neque, sollicitudin non libero sit amet, accumsan tincidunt 
-        //                      diam. Maecenas tempus nisl neque, eu ornare urna laoreet eget. Aliquam ex turpis, aliquet porttitor 
-        //                      neque ut, fringilla eleifend lectus...',
-        //     ),
-        //     3 => array(
-        //         "titulo" => "Titulo do post 1",
-        //         "data" => date('d/m/Y H:i:s', strtotime("-4 days")),
-        //         "resumo" => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at urna suscipit, vehicula turpis in, 
-        //                      pulvinar elit. Nullam gravida ut magna a vestibulum. Nullam quis nulla enim. Fusce a vulputate ex, 
-        //                      eget commodo tellus. Pellentesque nisl neque, sollicitudin non libero sit amet, accumsan tincidunt 
-        //                      diam. Maecenas tempus nisl neque, eu ornare urna laoreet eget. Aliquam ex turpis, aliquet porttitor 
-        //                      neque ut, fringilla eleifend lectus...',
-        //     ),
-        // );
+        $posts = \App\Post::all();        
 
         return view('blog.index', ['posts' => $posts]);
     }
@@ -89,7 +51,8 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = \App\Post::findOrFail($id);
+        return view('post.texto', ['post' => $post] );
     }
 
     /**
