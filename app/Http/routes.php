@@ -11,16 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-//Route::get('teste', function(){
-//    return "Olá universo";
-//});
 
-Route::get('ola/{nome}', 'TestController@index');
-Route::get('notas', 'TestController@notas');
+
+//Route::get('ola/{nome}', 'TestController@index');
+//Route::get('notas', 'TestController@notas');
 //Route::get('blog', 'BlogController@index');
-Route::resource('blog', 'BlogController');
+Route::resource('/', 'BlogController');
 //Route::controller('blog', 'BlogController');
+Route::get('admin', 'PostsAdminController@index');
