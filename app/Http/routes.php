@@ -22,7 +22,16 @@
 //Route::get('blog', 'BlogController@index');
 Route::resource('/', 'BlogController');
 //Route::controller('blog', 'BlogController');
-Route::get('admin/posts', ['as' => 'admin.posts.index', 'uses' => 'PostsAdminController@index']); //rotas nomeadas
-Route::get('admin/posts/create', ['as' => 'admin.posts.create', 'uses' => 'PostsAdminController@create']);
 //Route::get('admin/create', 'PostsAdminController@create');
-Route::post('admin/posts/store', ['as' => 'admin.posts.store', 'uses' => 'PostsAdminController@store']);
+
+Route::group(['prefix'=>'admin'], function () {
+
+	Route::get('posts', ['as' => 'admin.posts.index', 'uses' => 'PostsAdminController@index']); //rotas nomeadas
+	Route::get('posts/create', ['as' => 'admin.posts.create', 'uses' => 'PostsAdminController@create']);
+	Route::post('posts/store', ['as' => 'admin.posts.store', 'uses' => 'PostsAdminController@store']);
+	Route::get('posts/edit/{id}', ['as' => 'admin.posts.edit', 'uses' => 'PostsAdminController@edit']);
+	Route::put('posts/update/{id}', ['as' => 'admin.posts.update', 'uses' => 'PostsAdminController@update']);
+	Route::get('posts/destroy/{id}', ['as' => 'admin.posts.destroy', 'uses' => 'PostsAdminController@destroy']);
+
+});
+

@@ -8,7 +8,7 @@
 
         <div class="postagens" style="margin-top: 20px;">
             <div class="row">
-                <div class="col-sm-5" style="font-size: 20px;"><strong>Novo Post</strong></div>                
+                <div class="col-sm-5" style="font-size: 20px;"><strong>Editar Post:</strong>{{ $post->title }}</div>                
             </div>
 
         <div class="row">
@@ -21,11 +21,12 @@
                 </ul>
             @endif
 
-            {!! Form::open(['route' => 'admin.posts.store', 'method' => 'post']) !!}
+            {!! Form::model($post, ['route' => ['admin.posts.update', $post->id], 'method' => 'put']) !!}
 
                 @include('admin.posts._form')
                 
             {!! Form::close() !!}
+
         </div>
            
         </div>
