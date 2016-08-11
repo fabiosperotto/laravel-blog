@@ -23,6 +23,7 @@
 Route::resource('/', 'BlogController');
 //Route::controller('blog', 'BlogController');
 //Route::get('admin/create', 'PostsAdminController@create');
+Route::get('/post/{id}','BlogController@show');
 
 Route::group(['prefix'=>'admin'], function () {
 

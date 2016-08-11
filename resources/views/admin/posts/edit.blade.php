@@ -24,8 +24,17 @@
             {!! Form::model($post, ['route' => ['admin.posts.update', $post->id], 'method' => 'put']) !!}
 
                 @include('admin.posts._form')
+
+                <div class="form-group">
+                    {!! Form::label('tags', 'Tags:') !!}
+                    {!! Form::textarea('tags', $post->tagList, ['class' => 'form-control']) !!}                    
+                </div>
                 
-            {!! Form::close() !!}
+                <div class="form-group">                   
+                    {!! Form::submit('Salvar',  ['class' => 'btn btn-primary']) !!}
+                </div>
+
+            {!! Form::close() !!}            
 
         </div>
            

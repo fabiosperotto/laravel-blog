@@ -26,5 +26,6 @@
             </div>
         </div>
     @endforeach
+    {!! $posts->render() !!}
 
 @endsection

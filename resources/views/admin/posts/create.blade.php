@@ -24,7 +24,15 @@
             {!! Form::open(['route' => 'admin.posts.store', 'method' => 'post']) !!}
 
                 @include('admin.posts._form')
+
+                <div class="form-group">
+                    {!! Form::label('tags', 'Tags:') !!}
+                    {!! Form::textarea('tags', null, ['class' => 'form-control']) !!}                    
+                </div>
                 
+                <div class="form-group">                    
+                    {!! Form::submit('Salvar',  ['class' => 'btn btn-primary']) !!}
+                </div>
             {!! Form::close() !!}
         </div>
            
