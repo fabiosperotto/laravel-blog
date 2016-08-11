@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Tag;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -19,6 +20,13 @@ class PostsAdminController extends Controller
 	{
 		$this->post = $post;
 	}
+
+
+    // public function auth()
+    // {
+    //     $user = User::find(1);
+    //     Auth::login($user);
+    // }
 
     public function index()
     {

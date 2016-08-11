@@ -192,3 +192,16 @@ No front-end:
 - no formulário, verificar se existe $errors->any(), iterar no array que exibirá mensagens do framework sobre os erros encontrados na validação definida nas rules do back-end (ver resources/views/admin/posts/create.blade.php)
 
 
+## Sessões
+O Laravel trabalha com middlewares controllers e traits que cuidam com a autenticação de usuários. Ver Controller/Auth e Illuminate/Foundation/Auth/AuthenticatesUsers.
+
+- Verifique se possui os diretórios em Http/Controller/Auth e resources/views/auth (4 views), pois o Laravel já possui uma estrutura padrão para login. Se não possuir, execute o comando: php artisan make:auth
+- Adicione as rotas para autenticação (ver routes.php deste projeto):
+```bash
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController'
+]);
+```
+
+

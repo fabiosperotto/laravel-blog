@@ -25,7 +25,7 @@ Route::resource('/', 'BlogController');
 //Route::get('admin/create', 'PostsAdminController@create');
 Route::get('/post/{id}','BlogController@show');
 
-Route::group(['prefix'=>'admin'], function () {
+Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function () {
 
 	Route::get('posts', ['as' => 'admin.posts.index', 'uses' => 'PostsAdminController@index']); //rotas nomeadas
 	Route::get('posts/create', ['as' => 'admin.posts.create', 'uses' => 'PostsAdminController@create']);
@@ -36,3 +36,29 @@ Route::group(['prefix'=>'admin'], function () {
 
 });
 
+//rota de testes:
+// Route::get('/auth', function (){
+
+// 	// $user = \App\User::find(1);
+//  //    Auth::login($user);
+
+// 	if(Auth::attempt(['email' => 'teste@gmail.com', 'password' => 123456])){
+// 		return 'login valido!';
+// 	}
+
+//     //if(Auth::check()){
+//     	return 'falhou';
+//     //}
+
+// });
+
+//sessoes com rotas individuais:
+// Route::get('auth/login', 'Auth\AuthController@getLogin');
+// Route::post('auth/login', 'Auth\AuthController@postLogin');
+// Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+//sessoes:
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController'
+]);
